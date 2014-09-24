@@ -8,7 +8,7 @@ tarFile="raspbian.2014.09.09.tar.xz"
 
 (
 	set -x
-	debootstrap --no-check-gpg --arch=armhf --variant=minbase wheezy "$rootfsDir" http://archive.raspbian.org/raspbian
+	debootstrap --no-check-gpg --arch=armhf --variant='minbase' --include='iproute,iputils-ping' wheezy "$rootfsDir" http://archive.raspbian.org/raspbian
 )
 
 # now for some Docker-specific tweaks
