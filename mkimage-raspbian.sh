@@ -3,7 +3,8 @@ set -e
 
 dir="wheezy-chroot"
 rootfsDir="wheezy-chroot"
-tarFile="raspbian.2014.09.09.tar.xz"
+tarFile="raspbian.2015.05.01
+.tar.xz"
 ( set -x; mkdir -p "$rootfsDir" )
 
 (
