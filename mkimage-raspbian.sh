@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 set -e
 
-dir="wheezy-chroot"
-rootfsDir="wheezy-chroot"
-tarFile="raspbian.2015.05.01.tar.xz"
+dir="raspbian"
+rootfsDir="raspbian"
+tarFile="raspbian.2015.05.05.tar.xz"
 ( set -x; mkdir -p "$rootfsDir" )
 
 (
 	set -x
-	debootstrap --no-check-gpg --arch=armhf --variant='minbase' --include='iproute,iputils-ping' wheezy "$rootfsDir" http://archive.raspbian.org/raspbian
+	debootstrap --no-check-gpg --arch=armhf --verbose --variant='minbase' --include='iproute,iputils-ping' jessie "$rootfsDir" http://archive.raspbian.org/raspbian/
 )
 
 # now for some Docker-specific tweaks
