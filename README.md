@@ -23,7 +23,6 @@ Get some tacos.
 
 ```bash
 $ docker build -t rpi-raspbian .
-
 ```
 
 Running
