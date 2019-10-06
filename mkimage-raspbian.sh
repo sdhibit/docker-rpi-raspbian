@@ -3,7 +3,7 @@ set -e
 
 dir="raspbian"
 rootfsDir="raspbian"
-tarFile="raspbian.tar.xz"
+tarFile="raspbianBuster.tar.xz"
 ( set -x; mkdir -p "$rootfsDir" )
 
 (
@@ -25,8 +25,6 @@ cat > "$rootfsDir/usr/sbin/policy-rc.d" <<'EOF'
 exit 101
 EOF
 chmod +x "$rootfsDir/usr/sbin/policy-rc.d"
-
-echo "bla"
 
 # prevent upstart scripts from running during install/update
 (
