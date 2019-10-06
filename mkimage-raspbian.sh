@@ -3,12 +3,12 @@ set -e
 
 dir="raspbian"
 rootfsDir="raspbian"
-tarFile="raspbian.2015.05.05.tar.xz"
+tarFile="raspbian.tar.xz"
 ( set -x; mkdir -p "$rootfsDir" )
 
 (
 	set -x
-	debootstrap --no-check-gpg --arch=armhf --verbose --variant='minbase' --include='iproute,iputils-ping' jessie "$rootfsDir" http://archive.raspbian.org/raspbian/
+	debootstrap --no-check-gpg --arch=armhf --verbose --variant='minbase' --include='iproute2,iputils-ping' buster "$rootfsDir" http://archive.raspbian.org/raspbian/
 )
 
 # now for some Docker-specific tweaks
@@ -25,6 +25,8 @@ cat > "$rootfsDir/usr/sbin/policy-rc.d" <<'EOF'
 exit 101
 EOF
 chmod +x "$rootfsDir/usr/sbin/policy-rc.d"
+
+echo "bla"
 
 # prevent upstart scripts from running during install/update
 (
